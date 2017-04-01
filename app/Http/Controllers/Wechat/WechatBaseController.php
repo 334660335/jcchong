@@ -21,59 +21,32 @@ class WechatBaseController extends BaseController
      */
     public function serve()
     {
-        $app = new Application(config('wechat'));
+        $options = [
+            'debug'     => true,
+            'app_id'    => 'wxe5f3d6597b5a4995',
+            'secret'    => '2f123ecff3176ba199004e65cfd01e33',
+            'token'     => 'h7rmNN01oEbYyzFV0MMV3DxzwuC1fgpM',
+            'aes_key'   => 'V4ZvqidoYCzcHQur572jujIRj1VHIH8bg5sAN3VlrmN',
+
+            /*
+            'app_id'    => 'wx8ef3d613e1888b77',
+            'secret'    => '03323f0257173491b4d2b1f714db6ef2',
+            'token'     => 'hZ0Mosln7UgVOrfC',
+            'aes_key'   => 'a9JlDAodzAfNZ1hx93bYPYRKwefq4RWyJgJiEof2XRL',
+            */
+            'log' => [
+                'level' => 'debug',
+                'file'  => '/data/wwwroot/default/storage/logs/easywechat.log',
+            ],
+            // ...
+        ];
+        $app = new Application($options);
         // 从项目实例中得到服务端应用实例。
         $server = $app->server;
-        $server->setMessageHandler(function($message){
-            switch ($message->MsgType) {
-                case 'event':
-                    //订阅公众号
-                    if($message->Event == 'subscribe')
-                    {
-                        return '感谢您的关注';
-                    }
-                    //取消订阅公众号
-                    else if($message->Event == 'unsubscribe')
-                    {
-                        return "感谢您的支持!";
-                    }
-                    else
-                    {
-                        //do something
-                    }
-                    break;
-                case 'text':
-                    # 文字消息...
-                    return '我们已收到您的消息，感谢您对私律的支持！';
-                    //return $info;
-                    break;
-                case 'image':
-                    return '我们已收到您的图片，感谢您对私律的支持！';
-                    # 图片消息...
-                    break;
-                case 'voice':
-                    return '我们已收到您的语音，感谢您对私律的支持！';
-                    # 语音消息...
-                    break;
-                case 'video':
-                    return '我们已收到您的视频，感谢您对私律的支持！';
-                    # 视频消息...
-                    break;
-                case 'location':
-                    return '我们已收到您的地址，感谢您对私律的支持！';
-                    # 坐标消息...
-                    break;
-                case 'link':
-                    return '我们已收到您的链接，感谢您对私律的支持！';
-                    # 链接消息...
-                    break;
-                // ... 其它消息
-                default:
-                    # code...
-                    break;
-            }
+        $server->setMessageHandler(function(){
+            return "您好！欢迎关注 overtrue!";
         });
-        return $server->serve();
+        //return $app->server->serve();
     }
 
 }
