@@ -25,54 +25,8 @@ class WechatBaseController extends BaseController
     public function serve()
     {
         $base = app('wechat');
-        $base->server->setMessageHandler(function($message){
-            switch ($message->MsgType) {
-                case 'event':
-                    //订阅公众号
-                    if($message->Event == 'subscribe')
-                    {
-                        return "欢迎订阅!";
-                    }
-                    //取消订阅公众号
-                    else if($message->Event == 'unsubscribe')
-                    {
-                        return "感谢您的支持!";
-                    }
-                    else
-                    {
-                        //do something
-                    }
-                    break;
-                case 'text':
-                    # 文字消息...
-                    return '我们已收到您的消息，感谢您对私律的支持！';
-                    //return $info;
-                    break;
-                case 'image':
-                    return '我们已收到您的图片，感谢您对私律的支持！';
-                    # 图片消息...
-                    break;
-                case 'voice':
-                    return '我们已收到您的语音，感谢您对私律的支持！';
-                    # 语音消息...
-                    break;
-                case 'video':
-                    return '我们已收到您的视频，感谢您对私律的支持！';
-                    # 视频消息...
-                    break;
-                case 'location':
-                    return '我们已收到您的地址，感谢您对私律的支持！';
-                    # 坐标消息...
-                    break;
-                case 'link':
-                    return '我们已收到您的链接，感谢您对私律的支持！';
-                    # 链接消息...
-                    break;
-                // ... 其它消息
-                default:
-                    # code...
-                    break;
-            }
+        $base->server->setMessageHandler(function(){
+            return "欢迎订阅!";
         });
         return $base->server->serve();
     }
