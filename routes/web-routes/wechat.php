@@ -10,5 +10,6 @@
  */
 Route::group(['domain' => 'wechat.jcchong.com'], function () {
     //any
-    Route::any('/serve', 'Wechat\WechatBaseController@serve');//微信连接
+    echo 1;die;
+    Route::any('serve', 'Wechat\WechatBaseController@serve');//微信连接
 });
