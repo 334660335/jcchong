@@ -8,7 +8,6 @@
  * Project_name: vicky
  * File_name: wechat-web.php
  */
-
 Route::group(['domain' => 'wechat.jcchong.com'], function () {
     //get
     Route::get('serve', 'Wechat\WechatBaseController@serve');//微信连接
