@@ -163,15 +163,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
         //wechat
         Overtrue\LaravelWechat\ServiceProvider::class,
-
         /*
          * Application Service Providers...
          */
@@ -231,7 +228,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //for wechat
         'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
-
     ],
 
 ];
