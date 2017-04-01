@@ -24,7 +24,8 @@ class WechatBaseController extends BaseController
      */
     public function serve()
     {
-        $this->wechat->server->setMessageHandler(function($message){
+        $base = app('wechat');
+        $base->server->setMessageHandler(function($message){
             $info = '您的账号为:'.$message->ToUserName.',';
             $info.= 'OpenID为:'.$message->FromUserName;
             switch ($message->MsgType) {
@@ -75,7 +76,7 @@ class WechatBaseController extends BaseController
                     break;
             }
         });
-        return $this->wechat->server->serve();
+        return $base->server->serve();
     }
 
     protected function __initwechat($scopes='',$callback='')
