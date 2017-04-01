@@ -9,7 +9,5 @@
  * File_name: wechat-web.php
  */
 Route::group(['domain' => 'wechat.jcchong.com'], function () {
-    //any
-    echo 1;die;
     Route::any('serve', 'Wechat\WechatBaseController@serve');//微信连接
 });
