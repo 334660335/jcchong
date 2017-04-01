@@ -169,6 +169,9 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 
+        //wechat
+        Overtrue\LaravelWechat\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -226,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //for wechat
+        'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
 
     ],
 
