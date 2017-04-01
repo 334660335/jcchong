@@ -24,9 +24,8 @@ class WechatBaseController extends BaseController
      */
     public function serve()
     {
-        $this->wechat->server->setMessageHandler(function($message){
-            $info = '您的账号为:'.$message->ToUserName.',';
-            $info.= 'OpenID为:'.$message->FromUserName;
+        $app = app('wechat');
+        $app->server->setMessageHandler(function($message){
             switch ($message->MsgType) {
                 case 'event':
                     //订阅公众号
@@ -75,14 +74,15 @@ class WechatBaseController extends BaseController
                     break;
             }
         });
-        return $this->wechat->server->serve();
+        return $app->server->serve();
     }
 
     protected function __initwechat($scopes='',$callback='')
     {
+        $config = config('wechat');
         if(empty($scopes))
         {
-            $this->wechat = new Application(config('wechat'));
+            $this->wechat = new Application($config);
         }
         else
         {
@@ -95,7 +95,6 @@ class WechatBaseController extends BaseController
             }
             else
             {
-                $config = config('wechat');
                 $config['oauth']['scopes'][0] = 'snsapi_base';
                 $this->wechat = new Application($config);
             }
