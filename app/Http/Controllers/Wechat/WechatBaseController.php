@@ -24,8 +24,9 @@ class WechatBaseController extends BaseController
      */
     public function serve()
     {
-        $app = app('wechat');
-        $app->server->setMessageHandler(function($message){
+        // 从项目实例中得到服务端应用实例。
+        $server = $this->wechat->server;
+        $server->setMessageHandler(function($message){
             switch ($message->MsgType) {
                 case 'event':
                     //订阅公众号
@@ -74,7 +75,7 @@ class WechatBaseController extends BaseController
                     break;
             }
         });
-        return $app->server->serve();
+        return $server->serve();
     }
 
     protected function __initwechat($scopes='',$callback='')
