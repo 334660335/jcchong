@@ -28,8 +28,7 @@ class WechatBaseController extends BaseController
         $server->setMessageHandler(function(){
             return "欢迎订阅!";
         });
-        //return $base->server->serve();
-        return $server->serve()->send();
+        return $server->serve();
     }
 
     protected function __initwechat($scopes='',$callback='')
