@@ -24,11 +24,12 @@ class WechatBaseController extends BaseController
      */
     public function serve()
     {
-        $base = app('wechat');
-        $base->server->setMessageHandler(function(){
+        $server = $this->wechat->server;
+        $server->setMessageHandler(function(){
             return "欢迎订阅!";
         });
-        return $base->server->serve();
+        //return $base->server->serve();
+        $server->serve()->send();
     }
 
     protected function __initwechat($scopes='',$callback='')
