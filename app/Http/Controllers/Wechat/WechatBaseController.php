@@ -46,7 +46,7 @@ class WechatBaseController extends BaseController
         $server->setMessageHandler(function(){
             return "您好！欢迎关注 overtrue!";
         });
-        //return $app->server->serve();
+        return $app->server->serve();
     }
 
 }
