@@ -26,14 +26,12 @@ class WechatBaseController extends BaseController
     {
         $base = app('wechat');
         $base->server->setMessageHandler(function($message){
-            $info = '您的账号为:'.$message->ToUserName.',';
-            $info.= 'OpenID为:'.$message->FromUserName;
             switch ($message->MsgType) {
                 case 'event':
                     //订阅公众号
                     if($message->Event == 'subscribe')
                     {
-                        return "{$info},欢迎订阅!";
+                        return "欢迎订阅!";
                     }
                     //取消订阅公众号
                     else if($message->Event == 'unsubscribe')
