@@ -14,7 +14,7 @@ class WechatBaseController extends BaseController
     public function __construct()
     {
         parent::__construct();
-        //$this->__initwechat();
+        $this->__initwechat();
     }
 
     /**
