@@ -30,7 +30,7 @@ class WechatBaseController extends BaseController
 //            $info.= 'OpenID为:'.$message->FromUserName;
             switch ($message->MsgType) {
                 case 'event':
-                    $msg = '其他的事件';
+                    $msg = '其他的事件!'.$message->Event;
                     switch ($message->Event)
                     {
                         case 'subscribe':
