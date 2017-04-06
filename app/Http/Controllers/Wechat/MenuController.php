@@ -37,7 +37,12 @@ class MenuController extends WechatBaseController
                     [
                         'type' => 'click',
                         'name' => '聊天室',
-                        'url' => '开发中..'
+                        'key' => '开发中..'
+                    ],
+                    [
+                        'type' => 'click',
+                        'name' => '小程序',
+                        'key' => '开发中..'
                     ]
                 ],
             ],

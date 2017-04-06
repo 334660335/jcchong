@@ -12,7 +12,7 @@ Route::group(['domain' => 'wechat.jcchong.com'], function () {
     //get
     Route::get('/get_menu', 'Wechat\MenuController@get_menu');
     //post
-    Route::post('/create_menu', 'Wechat\MenuController@store_menu');
+    Route::post('/store_menu', 'Wechat\MenuController@store_menu');
     //any
     Route::any('/serve', 'Wechat\WechatBaseController@serve');//微信连接
 });
