@@ -18,7 +18,7 @@ class MenuController extends WechatBaseController
     }
 
     //创建微信菜单
-    public function create_menu()
+    public function store_menu()
     {
         $buttons = [
             [
