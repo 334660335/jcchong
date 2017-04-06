@@ -30,51 +30,53 @@ class WechatBaseController extends BaseController
 //            $info.= 'OpenID为:'.$message->FromUserName;
             switch ($message->MsgType) {
                 case 'event':
-                    //订阅公众号
-                    if($message->Event == 'subscribe')
+                    $msg = '其他的事件';
+                    switch ($message->Event)
                     {
-                        return '感谢订阅';
+                        case 'subscribe':
+                            $msg = '感谢订阅';
+                        break;
+                        case 'unsubscribe':
+                            $msg = '谢谢你的订阅';
+                        break;
+                        case 'CODING':
+                            $msg = '开发中';
+                        break;
+                        default:
+                        # code...
+                        break;
                     }
-                    //取消订阅公众号
-                    else if($message->Event == 'unsubscribe')
-                    {
-                        return '谢谢你的订阅';
-                    }
-                    else
-                    {
-                        return '其他的事件';
-                        //do something
-                    }
-                    break;
+                    return $msg;
+                break;
                 case 'text':
                     # 文字消息...
                     return '我们已收到您的消息，诶嘿嘿！';
                     //return $info;
-                    break;
+                break;
                 case 'image':
                     return '我们已收到您的图片，诶嘿嘿！';
                     # 图片消息...
-                    break;
+                break;
                 case 'voice':
                     return '我们已收到您的语音，诶嘿嘿！';
                     # 语音消息...
-                    break;
+                break;
                 case 'video':
                     return '我们已收到您的视频，诶嘿嘿！';
                     # 视频消息...
-                    break;
+                break;
                 case 'location':
                     return '我们已收到您的地址，诶嘿嘿！';
                     # 坐标消息...
-                    break;
+                break;
                 case 'link':
                     return '我们已收到您的链接，诶嘿嘿！';
                     # 链接消息...
-                    break;
+                break;
                 // ... 其它消息
                 default:
                     # code...
-                    break;
+                break;
             }
         });
         return $server->serve();

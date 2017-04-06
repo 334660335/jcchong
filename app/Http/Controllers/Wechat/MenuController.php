@@ -26,24 +26,24 @@ class MenuController extends WechatBaseController
                 'sub_button'  => [
                     [
                         'type' => 'click',
-                        'name' => '同步播放视频',
-                        'key' => '开发中..'
-                    ],
-                    [
-                        'type' => 'click',
-                        'name' => '我的日程',
-                        'key' => '开发中..'
-                    ],
-                    [
-                        'type' => 'click',
                         'name' => '聊天室',
-                        'key' => '开发中..'
+                        'key' => 'CODING'
                     ],
                     [
                         'type' => 'click',
                         'name' => '小程序',
-                        'key' => '开发中..'
-                    ]
+                        'key' => 'CODING'
+                    ],
+                    [
+                        'type' => 'click',
+                        'name' => '我的日程',
+                        'key' => 'CODING'
+                    ],
+                    [
+                        'type' => 'click',
+                        'name' => '同步播放视频',
+                        'key' => 'CODING'
+                    ],
                 ],
             ],
             [
@@ -51,8 +51,8 @@ class MenuController extends WechatBaseController
                 'sub_button' => [
                     [
                         'type' => 'view',
-                        'name' => 'Home',
-                        'url' => 'http://www.jcchong.com'
+                        'name' => 'kevin的世界',
+                        'url' => 'http://kevin.jcchong.com'
                     ],
                     [
                         'type' => 'view',
@@ -61,9 +61,9 @@ class MenuController extends WechatBaseController
                     ],
                     [
                         'type' => 'view',
-                        'name' => 'kevin的世界',
-                        'url' => 'http://kevin.jcchong.com'
-                    ]
+                        'name' => 'Home',
+                        'url' => 'http://www.jcchong.com'
+                    ],
                 ]
             ],
             [
