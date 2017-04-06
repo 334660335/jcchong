@@ -26,8 +26,8 @@ class WechatBaseController extends BaseController
     {
         $server = $this->wechat->server;
         $server->setMessageHandler(function($message){
-            $info = '您的账号为:'.$message->ToUserName.',';
-            $info.= 'OpenID为:'.$message->FromUserName;
+//            $info = '您的账号为:'.$message->ToUserName.',';
+//            $info.= 'OpenID为:'.$message->FromUserName;
             switch ($message->MsgType) {
                 case 'event':
                     //订阅公众号
@@ -48,27 +48,27 @@ class WechatBaseController extends BaseController
                     break;
                 case 'text':
                     # 文字消息...
-                    return $info.'我们已收到您的消息，感谢您对私律的支持！';
+                    return '我们已收到您的消息，诶嘿嘿！';
                     //return $info;
                     break;
                 case 'image':
-                    return '我们已收到您的图片，感谢您对私律的支持！';
+                    return '我们已收到您的图片，诶嘿嘿！';
                     # 图片消息...
                     break;
                 case 'voice':
-                    return '我们已收到您的语音，感谢您对私律的支持！';
+                    return '我们已收到您的语音，诶嘿嘿！';
                     # 语音消息...
                     break;
                 case 'video':
-                    return '我们已收到您的视频，感谢您对私律的支持！';
+                    return '我们已收到您的视频，诶嘿嘿！';
                     # 视频消息...
                     break;
                 case 'location':
-                    return '我们已收到您的地址，感谢您对私律的支持！';
+                    return '我们已收到您的地址，诶嘿嘿！';
                     # 坐标消息...
                     break;
                 case 'link':
-                    return '我们已收到您的链接，感谢您对私律的支持！';
+                    return '我们已收到您的链接，诶嘿嘿！';
                     # 链接消息...
                     break;
                 // ... 其它消息
