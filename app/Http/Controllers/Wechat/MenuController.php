@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Wechat;
-
+use Carbon\Carbon;
 /*
  * 微信菜单
  * add by wangrenjie at 2017 04 06
  */
+
 class MenuController extends WechatBaseController
 {
 
@@ -78,12 +79,13 @@ class MenuController extends WechatBaseController
             ],
         ];
         $this->menu->add($buttons);
+        echo 'Menu Created At '.Carbon::now();
     }
 
     //获取微信菜单
     public function get_menu()
     {
-        $this->menu->current();
+        dd($this->menu->current());
     }
 
 }
