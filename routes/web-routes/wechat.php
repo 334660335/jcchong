@@ -23,5 +23,6 @@ Route::group(['domain' => 'wechat.jcchong.com'], function () {
     //post
     Route::post('upload', function(){
         \Illuminate\Support\Facades\Storage::put('logs/test.log', json_encode($_FILES));
+        echo 1;
     });
 });
