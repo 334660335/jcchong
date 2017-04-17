@@ -15,4 +15,13 @@ Route::group(['domain' => 'wechat.jcchong.com'], function () {
     Route::post('/store_menu', 'Wechat\MenuController@store_menu');
     //any
     Route::any('/serve', 'Wechat\WechatBaseController@serve');//微信连接
+
+    /***************************** mini program ***********************/
+    //get
+    Route::get('/mini_index', 'Wechat\MiniProgramController@index');
+
+    //post
+    Route::post('upload', function(){
+        \Illuminate\Support\Facades\Storage::put('logs/test.log', json_encode($_FILES));
+    });
 });

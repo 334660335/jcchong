@@ -13,4 +13,3 @@ require_once 'web-routes/wechat.php';
 Route::get('/', function () {
     return view('welcome');
 });
-
