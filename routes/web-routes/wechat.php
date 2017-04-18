@@ -21,7 +21,14 @@ Route::group(['domain' => 'wechat.jcchong.com'], function () {
     Route::get('/mini_index', 'Wechat\MiniProgramController@index');
 
     //post
-    Route::post('upload', function(){
+    Route::post('upload', function(\Illuminate\Http\Request $request){
+        $file = $request->file('file');
+        $newFileName = md5(time().rand(0,10000)).'.'.$file->getClientOriginalExtension();
+        $savePath = 'logs/'.$newFileName;
+        \Illuminate\Support\Facades\Storage::put(
+            $savePath,
+            file_get_contents($file->getRealPath())
+        );
         \Illuminate\Support\Facades\Storage::put('logs/test.log', json_encode($_FILES));
         echo 1;
     });
