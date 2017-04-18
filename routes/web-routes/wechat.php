@@ -25,8 +25,8 @@ Route::group(['domain' => 'wechat.jcchong.com'], function () {
         $file = $request->file('file');
         $newFileName = md5(time().rand(0,10000)).'.'.$file->getClientOriginalExtension();
         $savePath = 'logs/'.$newFileName;
-        //\Illuminate\Support\Facades\Storage::put($savePath,file_get_contents($file->getRealPath()));
-        \Illuminate\Support\Facades\Storage::put('logs/test.log', json_encode($_FILES).$file->getRealPath());
+        \Illuminate\Support\Facades\Storage::put($savePath,file_get_contents($file->getRealPath()));
+        \Illuminate\Support\Facades\Storage::put('logs/test.log', json_encode($_FILES));
         echo 1;
     });
 });
